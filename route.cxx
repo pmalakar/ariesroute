@@ -153,6 +153,7 @@ void getRoute(int srcRank, int destRank) { //, char *path) {
 #ifdef DEBUG
 	printf("Source rank: %d coords = (%u,%u,%u,%u,%u,%u) : %d\n", srcRank, srcCoords[0], srcCoords[1], srcCoords[2], srcCoords[3], srcCoords[4], srcCoords[5], destRank);
 #endif
+	printf("Path %d %u-%u to %d %u-%u\n", srcNid, srcCoords[0], srcCoords[1], destNid, destCoords[0], destCoords[1]);
 
 	//Initialize intermediate nodes in original path to the destination node
 	for (int dim=0; dim < MAX_DIMS; dim++) 
@@ -204,9 +205,10 @@ void getRoute(int srcRank, int destRank) { //, char *path) {
 #ifdef DEBUG
 			//printf ("Route %d to %d Hop %d\n", srcRank, intmdtRank, hopnum);
 			printf ("Route %d to %d Hop %d\n", child, parent, hopnum);
-			printf ("%d->%d;\n", child, parent);
 			//printf ("%d->%d;\n", hopnum, child, parent);
 #endif
+			printf ("%d->%d;\n", child, parent);
+
 			Nid2Coords (&child, childCoords);
 
 			printf ("Hop %d: [%d-%d] %d (%d %d %d %d %d %d) -> %d (%d %d %d %d %d %d)\n", \
